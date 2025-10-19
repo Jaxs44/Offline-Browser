@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .instruction {
+            font-size: 1.2em;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+        }
+        .highlight {
+            background: rgba(255, 255, 0, 0.3);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+        .emoji {
+            font-size: 2em;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="emoji">🖥️</span>Fullscreen Test</h1>
+        
+        <div class="test-section">
+            <h2>Test Instructions:</h2>
+            <div class="instruction">
+                1. Click <span class="highlight">☰ More → 🖥️ Full Screen</span>
+            </div>
+            <div class="instruction">
+                2. Move mouse to <span class="highlight">top of screen</span> - overlay should appear
+            </div>
+            <div class="instruction">
+                3. Move mouse away - overlay should fade after 3 seconds
+            </div>
+            <div class="instruction">
+                4. Click <span class="highlight">✕ Exit Full Screen</span> or press <span class="highlight">ESC</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Expected Behavior:</h2>
+            <ul>
+                <li>✅ No white bars or gaps in fullscreen</li>
+                <li>✅ Overlay appears smoothly when hovering at top</li>
+                <li>✅ Auto-hide works after 3 seconds of inactivity</li>
+                <li>✅ ESC key exits fullscreen</li>
+                <li>✅ Page content fills entire screen</li>
+            </ul>
+        </div>
+
+        <div class="test-section" style="margin-top: 50px;">
+            <h3>Visual Test Area</h3>
+            <p>This gradient background should fill the entire screen in fullscreen mode with no borders or gaps.</p>
+            <div style="height: 200px; background: linear-gradient(90deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3); border-radius: 10px; margin: 20px 0;"></div>
+            <p style="font-size: 2em; text-align: center;">🎨 Full Screen Success!</p>
+        </div>
+    </div>
+</body>
+</html>

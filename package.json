@@ -1,0 +1,74 @@
+{
+  "name": "offlinebrowserelectron",
+  "version": "1.0.0",
+  "description": "Offline HTML Browser - View and test HTML files locally with advanced features including fullscreen overlay, zoom control, JavaScript toggle, screenshot capture, audio mute, and comprehensive page navigation",
+  "main": "main.js",
+  "author": {
+    "name": "Jaxs the Fox",
+    "email": "jaxsthefox@example.com"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/jaxsthefox/offline-browser",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jaxsthefox/offline-browser.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jaxsthefox/offline-browser/issues"
+  },
+  "keywords": [
+    "browser",
+    "offline",
+    "html",
+    "viewer",
+    "testing",
+    "electron",
+    "webview",
+    "local-files",
+    "html-viewer",
+    "developer-tools"
+  ],
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "build": {
+    "appId": "com.jaxsthefox.offlinebrowser",
+    "productName": "Offline Browser",
+    "copyright": "Copyright © 2025 Jaxs the Fox. All rights reserved.",
+    "icon": "icon.png",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "**/*",
+      "!**/*.ts",
+      "!*.md",
+      "!create-icon.js",
+      "!build-icon.js",
+      "!convert-dalle-icon.js",
+      "!create-ico.js",
+      "!dalle-icon.webp"
+    ],
+    "win": {
+      "target": "portable",
+      "signAndEditExecutable": false,
+      "icon": "icon.png",
+      "legalTrademarks": "Offline Browser™",
+      "requestedExecutionLevel": "asInvoker",
+      "verifyUpdateCodeSignature": false
+    },
+    "extraMetadata": {
+      "version": "1.0.0",
+      "description": "Advanced offline HTML browser with fullscreen overlay, zoom, JavaScript toggle, screenshot capture, and audio controls",
+      "author": "Jaxs the Fox"
+    }
+  },
+  "devDependencies": {
+    "electron": "^38.3.0",
+    "electron-builder": "^26.0.12",
+    "png-to-ico": "^3.0.1",
+    "sharp": "^0.34.4"
+  }
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio & Mute Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #ff6b6b;
+        }
+        button {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
+        }
+        .button-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        .status {
+            text-align: center;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 8px;
+            margin: 20px 0;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔊 Audio & Mute Test</h1>
+        
+        <div class="test-section">
+            <h2>Test Instructions:</h2>
+            <ol>
+                <li>Click the tone buttons below to play sounds</li>
+                <li>Click <strong>🔊 Mute button</strong> in toolbar</li>
+                <li>Try playing tones - should be silent</li>
+                <li>Icon should change to <strong>🔇</strong></li>
+                <li>Click mute button again - sound returns</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h2>Audio Test Controls:</h2>
+            <div class="button-group">
+                <button onclick="playTone(220)">🎵 Low (220 Hz)</button>
+                <button onclick="playTone(440)">🎵 Mid (440 Hz)</button>
+                <button onclick="playTone(880)">🎵 High (880 Hz)</button>
+            </div>
+            <div class="button-group">
+                <button onclick="playBeep()">📢 Short Beep</button>
+                <button onclick="toggleContinuous()">🔁 Continuous Tone</button>
+            </div>
+            <div class="button-group">
+                <button onclick="stopAll()">⏹️ Stop All</button>
+            </div>
+        </div>
+
+        <div class="status" id="status">
+            Ready to test audio
+        </div>
+
+        <div class="test-section">
+            <h2>Expected Behavior:</h2>
+            <ul>
+                <li>✅ Tones play when buttons clicked</li>
+                <li>✅ Mute button (🔊) stops all audio</li>
+                <li>✅ Icon changes to 🔇 when muted</li>
+                <li>✅ All sounds silent when muted</li>
+                <li>✅ Unmute restores audio functionality</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        let audioContext;
+        let oscillator;
+        let isContinuous = false;
+        const statusDiv = document.getElementById('status');
+
+        function initAudio() {
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function playTone(frequency, duration = 500) {
+            initAudio();
+            
+            const osc = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            osc.frequency.value = frequency;
+            osc.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration / 1000);
+            
+            osc.start();
+            osc.stop(audioContext.currentTime + duration / 1000);
+            
+            statusDiv.textContent = `🎵 Playing ${frequency} Hz tone`;
+            statusDiv.style.background = '#e3f2fd';
+        }
+
+        function playBeep() {
+            initAudio();
+            
+            const osc = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            osc.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            osc.frequency.value = 800;
+            osc.type = 'square';
+            
+            gainNode.gain.value = 0.2;
+            
+            osc.start();
+            osc.stop(audioContext.currentTime + 0.1);
+            
+            statusDiv.textContent = '📢 Beep!';
+            statusDiv.style.background = '#fff9c4';
+        }
+
+        function toggleContinuous() {
+            if (isContinuous) {
+                stopAll();
+            } else {
+                initAudio();
+                
+                oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 440;
+                oscillator.type = 'sine';
+                gainNode.gain.value = 0.2;
+                
+                oscillator.start();
+                isContinuous = true;
+                
+                statusDiv.textContent = '🔁 Continuous tone playing (440 Hz)';
+                statusDiv.style.background = '#ffccbc';
+            }
+        }
+
+        function stopAll() {
+            if (oscillator) {
+                oscillator.stop();
+                oscillator = null;
+            }
+            isContinuous = false;
+            
+            statusDiv.textContent = '⏹️ All audio stopped';
+            statusDiv.style.background = '#e8f5e9';
+        }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', () => {
+            stopAll();
+            if (audioContext) {
+                audioContext.close();
+            }
+        });
+    </script>
+</body>
+</html>

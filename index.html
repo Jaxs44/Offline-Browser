@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Offline Testing Browser</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div id="titleBar">
+        <div id="titleBarLeft">
+            <img src="icon.png" id="titleBarIcon">
+            <span id="titleBarText">Offline Testing Browser</span>
+        </div>
+        <div id="titleBarControls">
+            <button id="helpTitleBtn" title="About and Help">?</button>
+            <button id="minimizeBtn" title="Minimize">─</button>
+            <button id="maximizeBtn" title="Maximize">□</button>
+            <button id="closeBtn" title="Close">✕</button>
+        </div>
+    </div>
+    
+    <!-- Toolbar -->
+    <div id="toolbar">
+        <button id="backBtn" title="Go back to previous page">◀</button>
+        <button id="forwardBtn" title="Go forward to next page">▶</button>
+        <span id="pageCounter" title="Current page / Total pages">0 of 0</span>
+        <button id="reloadBtn" title="Reload current page">🔄</button>
+        <button id="muteBtn" title="Toggle audio mute">🔊</button>
+        <button id="pagesBtn" title="View and manage page history">📋</button>
+        <button id="blankWindowBtn" title="Open new blank window">🗔</button>
+        <button id="openBtn" title="Open HTML file from disk">📂</button>
+        <input type="text" id="urlBar" placeholder="Enter URL or file path" title="Enter URL and press Enter to navigate">
+        <button id="moreBtn" title="Show more options">☰ More</button>
+    </div>
+
+    <!-- Pages Menu -->
+    <div id="pagesMenu" class="hidden">
+        <div id="pagesList"></div>
+    </div>
+
+    <!-- More Menu -->
+    <div id="moreMenu" class="hidden">
+        <button id="fullscreenBtn" title="Enter fullscreen mode with auto-hiding overlay">🖥️ Full Screen</button>
+        <hr>
+        <label title="Toggle JavaScript execution on pages"><input type="checkbox" id="jsCheckbox" checked> <span class="checkmark">✓</span> <span style="color: gold; font-weight: bold">.js</span> <span id="jsLabel">JavaScript Enabled</span></label>
+        <button id="screenshotBtn" title="Capture current page to PNG file">📸 Take Screenshot</button>
+        <hr>
+        <button id="zoomInBtn" title="Increase zoom level">🔍+ Zoom In</button>
+        <button id="zoomOutBtn" title="Decrease zoom level">🔍− Zoom Out</button>
+        <button id="zoomResetBtn" title="Reset zoom to 100%">🔍 Reset Zoom (100%)</button>
+        <hr>
+        <button id="downloadPathBtn" title="Change where screenshots are saved (defaults to exe folder)">📁 Set Download Path</button>
+        <label title="Show status bar with page info"><input type="checkbox" id="statusBarCheckbox"> <span class="checkmark"></span> 📊 Show Status Bar</label>
+        <hr>
+        <button id="advancedBtn" title="Show advanced developer options">⚙️ Advanced ▼</button>
+        <div id="advancedSubmenu" class="submenu hidden">
+            <button id="viewSourceBtn" title="Open developer tools for debugging">🔍 Toggle DevTools</button>
+            <button id="clearHistoryBtn" title="Remove all pages from history">🧹 Clear History</button>
+            <button id="forceErrorBtn" style="color: orange;" title="Test error handling (debug only)">⚠️ Force Error Test (Debug)</button>
+        </div>
+    </div>
+
+    <!-- Webview -->
+    <webview id="webview"></webview>
+
+    <!-- Status Bar -->
+    <div id="statusBar" class="hidden">
+        <span id="statusText">Ready</span>
+    </div>
+
+    <!-- Fullscreen Overlay (THE EASY PART!) -->
+    <div id="fullscreenTrigger"></div>
+    <div id="fullscreenOverlay" class="hidden">
+        <button id="exitFullscreenBtn" title="Exit fullscreen mode">✕ Exit Full Screen (ESC)</button>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screenshot Test</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 3em;
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #fa709a;
+        }
+        .visual-elements {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .color-box {
+            height: 100px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .emoji-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+            font-size: 3em;
+        }
+        .pattern {
+            background: repeating-linear-gradient(
+                45deg,
+                #667eea,
+                #667eea 10px,
+                #764ba2 10px,
+                #764ba2 20px
+            );
+            height: 80px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 Screenshot Test</h1>
+        
+        <div class="test-section">
+            <h2>Test Instructions:</h2>
+            <ol>
+                <li>Review the colorful elements on this page</li>
+                <li>Go to <strong>☰ More → 📸 Take Screenshot</strong></li>
+                <li>Choose save location (defaults to exe folder)</li>
+                <li>Open the saved PNG file</li>
+                <li>Verify all colors and elements captured correctly</li>
+            </ol>
+        </div>
+
+        <div class="test-section">
+            <h2>Visual Elements to Verify:</h2>
+            <div class="visual-elements">
+                <div class="color-box" style="background: #ff6b6b;">Red Box</div>
+                <div class="color-box" style="background: #4ecdc4;">Cyan Box</div>
+                <div class="color-box" style="background: #45b7d1;">Blue Box</div>
+                <div class="color-box" style="background: #f9ca24;">Yellow Box</div>
+                <div class="color-box" style="background: #6c5ce7;">Purple Box</div>
+                <div class="color-box" style="background: #00b894;">Green Box</div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Emoji Test:</h2>
+            <div class="emoji-grid">
+                <span>🎨</span>
+                <span>🚀</span>
+                <span>⚡</span>
+                <span>🌈</span>
+                <span>🎯</span>
+                <span>💎</span>
+                <span>🔥</span>
+                <span>⭐</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Pattern Test:</h2>
+            <div class="pattern"></div>
+        </div>
+
+        <div class="test-section">
+            <h2>Text Styles:</h2>
+            <p style="font-size: 0.8em;">Small text should be readable</p>
+            <p style="font-size: 1em;">Normal text at 1em</p>
+            <p style="font-size: 1.5em; font-weight: bold;">Bold large text</p>
+            <p style="font-size: 2em; font-style: italic; color: #fa709a;">Italic colored text</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Expected Results:</h2>
+            <ul>
+                <li>✅ All colors captured accurately</li>
+                <li>✅ Text is crisp and readable</li>
+                <li>✅ Emojis display correctly</li>
+                <li>✅ Gradients and patterns smooth</li>
+                <li>✅ File saved as PNG with timestamp</li>
+                <li>✅ Default location is exe folder</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

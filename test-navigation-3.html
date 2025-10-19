@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test - Page 3</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #a8ff78 0%, #78ffd6 100%);
+            color: #333;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        .test-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 5px solid #a8ff78;
+        }
+        a {
+            color: #0984e3;
+            font-size: 1.3em;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: #dfe6e9;
+            border-radius: 8px;
+            display: inline-block;
+            margin: 10px 5px;
+            transition: all 0.3s;
+        }
+        a:hover {
+            background: #b2bec3;
+            transform: scale(1.05);
+        }
+        .page-number {
+            font-size: 5em;
+            text-align: center;
+            margin: 30px 0;
+            color: #00b894;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧭 Navigation Test</h1>
+        <div class="page-number">Page 3 of 3</div>
+        
+        <div class="test-section">
+            <h2>Final Page!</h2>
+            <p>This is the last page in the navigation test. Use the Back button (◀) to navigate through previous pages.</p>
+        </div>
+
+        <div class="test-section">
+            <h2>Navigate To:</h2>
+            <div>
+                <a href="test-navigation.html">← Back to Page 1</a>
+                <a href="test-navigation-2.html">← Back to Page 2</a>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>Advanced Tests:</h2>
+            <ul>
+                <li>Go back to Page 1 using Back button</li>
+                <li>Load a different file using <strong>📂 Open File</strong></li>
+                <li>Check that pages menu shows unique pages only</li>
+                <li>Delete a page from middle of history</li>
+                <li>Verify navigation still works correctly</li>
+            </ul>
+        </div>
+
+        <div class="test-section">
+            <h2>✅ Navigation Test Complete!</h2>
+            <p>If all the above worked correctly, the navigation system is functioning perfectly.</p>
+        </div>
+    </div>
+</body>
+</html>
