@@ -50,7 +50,12 @@ Auto-hiding overlay appears for 3 seconds in fullscreen mode for distraction-fre
 2. Download the latest `Offline.Browser.1.0.0.exe` (approximately 77-81 MB)
 3. Run the executable - no installation required!
 
-**Note:** Windows may show a security warning since the app isn't signed. Click "More info" → "Run anyway" to proceed.
+**⚠️ Windows Security Warning**: Windows may flag this as a virus because it's an unsigned executable. This is a false positive common with all unsigned Electron apps. The app is completely safe - built from open source code visible in this repository.
+
+**To run safely:**
+- Click "More info" → "Run anyway" when Windows Defender warns
+- Or temporarily add to Windows Defender exclusions
+- The source code is fully auditable in this repository
 
 ### Build from Source
 

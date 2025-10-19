@@ -52,7 +52,16 @@
       "!dalle-icon.webp"
     ],
     "win": {
-      "target": "portable",
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        },
+        {
+          "target": "zip",
+          "arch": ["x64"]
+        }
+      ],
       "signAndEditExecutable": false,
       "icon": "icon.png",
       "legalTrademarks": "Offline Browser™",
