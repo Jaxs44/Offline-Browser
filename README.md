@@ -233,9 +233,11 @@ See [LICENSE](LICENSE) for the full license text or visit https://creativecommon
 - App icon created with DALL-E (fox and portal design)
 - Built with Electron framework
 - Inspired by the need for a robust offline HTML testing tool
+- Developed with assistance from Claude (Sonnet 4.5) AI
 
 ---
 
 **Version**: 1.0.0  
 **Built with**: Electron 38.3.0  
-**Node.js**: 22.20.0
+**Node.js**: 22.20.0  
+**AI Assistant**: Claude Sonnet 4.5
