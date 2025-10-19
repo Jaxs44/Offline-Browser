@@ -338,6 +338,7 @@ webview {
 }
 
 /* Fullscreen state */
+body.fullscreen #titleBar,
 body.fullscreen #toolbar,
 body.fullscreen #statusBar {
     display: none;
