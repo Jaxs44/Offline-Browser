@@ -212,10 +212,6 @@ offline-browser/
 - Virus scanners may temporarily lock the output file during build (auto-resolves)
 - Custom title bar may need Windows-specific styling adjustments on other platforms
 
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
 ## License
 
 This project is licensed under the **Creative Commons Attribution 4.0 International (CC BY 4.0)** license.
@@ -246,3 +242,4 @@ See [LICENSE](LICENSE) for the full license text or visit https://creativecommon
 **Built with**: Electron 38.3.0  
 **Node.js**: 22.20.0  
 **AI Assistant**: Claude Sonnet 4.5
+
